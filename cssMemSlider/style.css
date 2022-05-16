@@ -2,9 +2,15 @@
     margin: 0;
     padding: 0;
 }
+body{
+    padding: 0 10px;
+}
 .navigation{
     position: absolute;
+    bottom: 28%;
+    right: 15%;
     display: flex;
+    z-index: 10;
 }
 label{
     width: 25px;
@@ -17,76 +23,114 @@ label{
 .bar{
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: 50% ;
+    border: 1px solid cornflowerblue ;
     background-color: cornflowerblue;
     cursor: pointer
 }
 .bar:hover{
-    background-color: white;
+    border: 1px solid white;
+        background-color: white;
 }
 .slider{
+    position: relative;
     margin: 0 auto;
-    width: 1920px;
+    display: flex;
+    width: 100%;
     height: 600px;
     background-color: rgb(0, 0, 0);
     overflow: hidden;
 }
 
 .slides{
+    display: flex;
     width: 500%;
     height: 100%;
 }
 .slide{
-    width: 25%;
+    margin-top: 10px;
+    flex: 1 0 100%;
+    width: 100%;
     height: 80%;
     transition: all .5s ease;
 }
-
+.slide p {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+color: white;
+}
 
 input[name="sld"] {
     position: absolute;
     visibility: hidden;
 }
 
-#s1:checked ~ .s1 {
-    margin-left: 0%;
+#s1:checked ~.slider .slides .slide{
+    transform:translateX(0%) ;
 }
-#s2:checked ~ .s1 {
-    margin-left: -20%;
+#s2:checked ~ .slider .slides .slide {
+    transform:translateX(-100%);
 }
-#s3:checked ~ .s1 {
-    margin-left: -40%;
+#s3:checked ~ .slider .slides .slide {
+    transform:translateX(-200%);
 }
-#s4:checked ~ .s1 {
-    margin-left: -60%;
+#s4:checked ~ .slider .slides .slide {
+    transform:translateX(-300%);
 }
-#s5:checked ~ .s1 {
-    margin-left: -80%;
+#s5:checked ~ .slider .slides .slide {
+    transform:translateX(-400%);
+}
+#s1:checked ~ .slider .navigation label .bar1{
+    background: black;
+}
+#s2:checked ~ .slider .navigation label .bar2{
+    background: black;
+}
+#s3:checked ~ .slider .navigation label .bar3{
+    background: black;
+}
+#s4:checked ~ .slider .navigation label .bar4{
+    background: black;
+}
+#s5:checked ~ .slider .navigation label .bar5{
+    background: black;
 }
 
+.mem__img{
+    width: 100%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .mem__img1{
     background-image: url(./img/img-1.jpg) ;
-    width: 100%;
-    height: 100%;
 }
 
 .mem__img2{
     background-image: url(./img/img-2.jpg) ;
-    width: 100%;
-    height: 100%;
+
 }
 .mem__img3{
     background-image: url(./img/img-3.jpg) ;
-    width: 100%;
-    height: 100%;
+
 }
 .mem__img4{
     background-image: url(./img/img-4.jpg) ;
-    width: 100%;
-    height: 100%;
+
 }
 .mem__img5{
     background-image: url(./img/img-5.jpg) ;
-    width: 100%;
-    height: 100%;
+
+}
+@media (max-width: 767px ) {
+    
+    .navigation{
+        bottom: 28%;
+        right: 40%;
+    }
+    .slide p{
+        margin-top: 50px;
+    }
 }
